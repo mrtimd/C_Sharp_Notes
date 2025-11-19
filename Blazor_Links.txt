@@ -1,0 +1,13 @@
+About Blazor
+https://learn.microsoft.com/en-us/aspnet/core/blazor/?view=aspnetcore-10.0
+
+First Blazor app: Simple no dbase
+https://dotnet.microsoft.com/en-us/learn/aspnet/blazor-tutorial/add
+
+Movie app w dbase
+https://learn.microsoft.com/en-us/aspnet/core/blazor/tutorials/movie-database-app/part-1?view=aspnetcore-9.0&pivots=vsc
+
+Build To-do - exercise - add To Do page to Movie app  list/2-data-bindinghttps://learn.microsoft.com/en-us/training/modules/build-blazor-todo-list/
+
+Newest Versions of app Building
+https://learn.microsoft.com/en-us/dotnet/maui/what-is-maui?view=net-maui-10.0
