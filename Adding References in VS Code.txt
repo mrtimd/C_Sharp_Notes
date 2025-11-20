@@ -2,9 +2,13 @@ vs code console app
 
 https://learn.microsoft.com/en-us/dotnet/core/tutorials/with-visual-studio-code
 
------
+_______________
 Adding References in VS Code
-In Visual Studio Code, adding references for C# or .NET projects is done by modifying the project configuration rather than using a GUI like in Visual Studio. This can be achieved either through the .csproj file or by using the .NET CLI.
+_________________
+In Visual Studio Code, adding references for C# or .NET projects 
+-- is done by modifying the project configuration rather than using a GUI like in Visual Studio. 
+This can be achieved either through the .csproj file 
+-- or by using the .NET CLI.
 
 Using .NET CLI for NuGet Packages
 
@@ -22,10 +26,11 @@ Step 3: Restore dependencies:
 dotnet restore
 
 This method is ideal for adding libraries available on NuGet.
-
+______________________
 Manually Adding DLL References
-
-Step 1: Place your .dll files in a dedicated folder (e.g., dlls). Step 2: Edit your .csproj file and add:
+________________________
+Step 1: Place your .dll files in a dedicated folder (e.g., dlls). 
+Step 2: Edit your .csproj file and add:
 
 <ItemGroup>
 <Reference Include="MyLibrary">
@@ -103,4 +108,5 @@ SDK-style (.NET Core/5+/6+/8+)	.csproj, Directory.Packages.props (if used), obj/
 Old-style (.NET Framework)	.csproj, packages.config, app.config/web.config	NuGet packages tracked in packages.config
 Any type	obj/project.assets.json	Auto-generated dependency graph
 --end notes
+
 
