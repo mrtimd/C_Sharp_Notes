@@ -4,8 +4,6 @@ https://learn.microsoft.com/en-us/dotnet/core/tutorials/with-visual-studio-code
 
 -----
 Adding References in VS Code
-1
-2
 In Visual Studio Code, adding references for C# or .NET projects is done by modifying the project configuration rather than using a GUI like in Visual Studio. This can be achieved either through the .csproj file or by using the .NET CLI.
 
 Using .NET CLI for NuGet Packages
@@ -13,15 +11,15 @@ Using .NET CLI for NuGet Packages
 Step 1: Open a terminal in your project folder. Step 2: Run the following command to add a NuGet package reference:
 
 dotnet add package Newtonsoft.Json
-Copy
+
 This updates your .csproj file with:
 
 <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
-Copy
+
 Step 3: Restore dependencies:
 
 dotnet restore
-Copy
+
 This method is ideal for adding libraries available on NuGet.
 
 Manually Adding DLL References
@@ -33,11 +31,11 @@ Step 1: Place your .dll files in a dedicated folder (e.g., dlls). Step 2: Edit y
 <HintPath>dlls\MyLibrary.dll</HintPath>
 </Reference>
 </ItemGroup>
-Copy
+
 Step 3: Save the file and run:
 
 dotnet build
-Copy
+
 This is useful for third-party or custom-built assemblies not available on NuGet.
 
 Using VS Code Extensions
@@ -45,13 +43,62 @@ Using VS Code Extensions
 Install the C# extension from the VS Code Marketplace for IntelliSense and build support.
 
 Optionally, install NuGet Package Manager to search and add packages via Command Palette (Ctrl+Shift+P → NuGet Package Manager: Add Package)
-1
-.
 
 Verification Tip: After adding references, check Dependencies in your project tree or run:
 
 dotnet list package
-Copy
+
 to confirm packages, or inspect .csproj for DLL references.
 
 Best Practice: Keep third-party DLLs in a dedicated folder and avoid placing them in build output directories to maintain clean source control
+
+---More Reference notes
+
+In a C#/.NET project, "references" can mean either assembly references (DLLs) or NuGet package references.
+When you add, remove, or update references, several files in your project may be updated depending on the project type and tooling.
+
+1. SDK-style projects (.NET Core, .NET 5+, .NET 6+, .NET 8+)
+These use the modern .csproj format.
+
+<ProjectName>.csproj
+
+Stores all assembly references and NuGet package references directly in XML.
+Example:
+Xml
+
+<ItemGroup>
+  <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+  <Reference Include="System.Data" />
+</ItemGroup>
+Directory.Packages.props (optional)
+
+If you use Central Package Management, package versions are stored here instead of in each .csproj.
+obj/project.assets.json (auto-generated)
+
+Created by NuGet restore; contains the resolved dependency graph.
+2. Old-style projects (.NET Framework pre-SDK style)
+These store more metadata in multiple files:
+
+<ProjectName>.csproj
+
+Contains <Reference> elements for assemblies and <PackageReference> or <HintPath> for DLLs.
+packages.config (NuGet < v3)
+
+Lists NuGet packages and versions separately from .csproj.
+app.config / web.config (optional)
+
+May be updated if a package adds configuration sections (e.g., logging, binding redirects).
+3. When you update references
+Manual DLL reference → .csproj changes <Reference> entry.
+NuGet package update →
+.csproj (SDK-style) or packages.config (old-style) changes.
+obj/project.assets.json regenerated.
+app.config/web.config may get updated with binding redirects.
+Project-to-project reference → .csproj gets <ProjectReference> entry.
+✅ Summary Table
+
+Project Type	Main Files Updated	Notes
+SDK-style (.NET Core/5+/6+/8+)	.csproj, Directory.Packages.props (if used), obj/project.assets.json	All references inline in .csproj
+Old-style (.NET Framework)	.csproj, packages.config, app.config/web.config	NuGet packages tracked in packages.config
+Any type	obj/project.assets.json	Auto-generated dependency graph
+--end notes
