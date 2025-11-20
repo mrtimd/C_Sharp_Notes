@@ -10,4 +10,27 @@ https://learn.microsoft.com/en-us/aspnet/core/blazor/tutorials/movie-database-ap
 Build To-do - exercise - add To Do page to Movie app  list/2-data-bindinghttps://learn.microsoft.com/en-us/training/modules/build-blazor-todo-list/
 
 Newest Versions of app Building
+
 https://learn.microsoft.com/en-us/dotnet/maui/what-is-maui?view=net-maui-10.0
+
+C# Raw
+
+
+https://learn.microsoft.com/en-us/visualstudio/get-started/csharp/tutorial-console?view=vs-2019
+
+Partial Class
+
+Windows Forms/WPF: In Visual Studio, the UI designer generates code in one file (e.g., MyForm.Designer.cs), while the developer adds custom logic in a separate file (e.g., MyForm.cs). Both files use the partial keyword to form a single MyForm class.
+LINQ to SQL / Entity Framework: ORM tools generate model classes as partial classes, allowing developers to extend them with custom validation logic or additional functionality without modifying the auto-generated file, which might be overwritten during regeneration.
+Large Classes: While generally an indicator of a "god class" that might need refactoring, partial classes can be used as a stepping stone to organize an existing large class into logical sections (e.g., methods for one interface in one file, methods for another in a different file) to improve readability.
+
+Multiple Developers: Multiple developers can work on the same class simultaneously in different files without constant merge conflicts
+
+https://www.geeksforgeeks.org/c-sharp/partial-classes-in-c-sharp/
+https://learn.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/partial-classes-and-methods
+
+azure
+https://learn.microsoft.com/en-us/azure/storage/blobs/storage-quickstart-blobs-dotnet?tabs=visual-studio%2Cmanaged-identity%2Croles-azure-portal%2Csign-in-azure-cli%2Cidentity-visual-studio&pivots=blob-storage-quickstart-scratch#upload-a-blob-to-a-container
+
+vs code calc
+https://marketplace.visualstudio.com/items?itemName=Dheovani.vscode-calculator
