@@ -1,0 +1,19 @@
+__________
+Clear Cache
+_______
+
+%APPDATA%\Code
+
+Delete the contents of the Cache and CachedData folders.
+
+Restart Visual Studio Code.
+
+_____________
+
+del /F /Q /S "%APPDATA%\Code\Cache\*"
+del /F /Q /S "%APPDATA%\Code\CachedData\*"
+
+To clear local storage (e.g., open tabs history):
+window.localStorage.clear()
+
+Restart Visual Studio Code.
