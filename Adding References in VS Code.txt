@@ -1,0 +1,57 @@
+vs code console app
+
+https://learn.microsoft.com/en-us/dotnet/core/tutorials/with-visual-studio-code
+
+-----
+Adding References in VS Code
+1
+2
+In Visual Studio Code, adding references for C# or .NET projects is done by modifying the project configuration rather than using a GUI like in Visual Studio. This can be achieved either through the .csproj file or by using the .NET CLI.
+
+Using .NET CLI for NuGet Packages
+
+Step 1: Open a terminal in your project folder. Step 2: Run the following command to add a NuGet package reference:
+
+dotnet add package Newtonsoft.Json
+Copy
+This updates your .csproj file with:
+
+<PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+Copy
+Step 3: Restore dependencies:
+
+dotnet restore
+Copy
+This method is ideal for adding libraries available on NuGet.
+
+Manually Adding DLL References
+
+Step 1: Place your .dll files in a dedicated folder (e.g., dlls). Step 2: Edit your .csproj file and add:
+
+<ItemGroup>
+<Reference Include="MyLibrary">
+<HintPath>dlls\MyLibrary.dll</HintPath>
+</Reference>
+</ItemGroup>
+Copy
+Step 3: Save the file and run:
+
+dotnet build
+Copy
+This is useful for third-party or custom-built assemblies not available on NuGet.
+
+Using VS Code Extensions
+
+Install the C# extension from the VS Code Marketplace for IntelliSense and build support.
+
+Optionally, install NuGet Package Manager to search and add packages via Command Palette (Ctrl+Shift+P → NuGet Package Manager: Add Package)
+1
+.
+
+Verification Tip: After adding references, check Dependencies in your project tree or run:
+
+dotnet list package
+Copy
+to confirm packages, or inspect .csproj for DLL references.
+
+Best Practice: Keep third-party DLLs in a dedicated folder and avoid placing them in build output directories to maintain clean source control
