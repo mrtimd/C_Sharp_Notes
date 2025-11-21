@@ -34,3 +34,12 @@ https://learn.microsoft.com/en-us/azure/storage/blobs/storage-quickstart-blobs-d
 
 vs code calc
 https://marketplace.visualstudio.com/items?itemName=Dheovani.vscode-calculator
+
+EF Db First
+https://learn.microsoft.com/en-us/ef/core/get-started/overview/first-app?tabs=netcore-cli
+
+https://www.tutorialspoint.com/entity_framework/entity_database_first_approach.htm
+
+https://learn.microsoft.com/en-us/aspnet/mvc/overview/getting-started/database-first-development/setting-up-database
+
+
